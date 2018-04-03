@@ -25,12 +25,8 @@ development:
   <<: *default
   username: bes_user
   password: bes123
-<<<<<<< HEAD
   host    : localhost #192.168.1.66 
-=======
   #host    : 192.168.1.66  #localhost
-  host    : localhost
->>>>>>> lonin part
   port    : 5432
   database: bes_app_02_apr_18
 
