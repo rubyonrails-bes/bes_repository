@@ -13,3 +13,52 @@
  *= require_tree .
  *= require_self
  */
+.login-form-block {
+  margin: 50px auto;
+  max-width: 340px;
+}
+h2{
+  margin-bottom:10px;
+}
+form {
+    border: 1px solid #03A9F4;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 49%;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+/*
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}*/
+
+.logo {
+    text-align: center;
+    margin: 16px 0 10px 0;
+}
+
+.logo img {
+    width: 40%;
+    border-radius: 50%;
+}

@@ -4,7 +4,6 @@ def new
 end
 
   def create
-  	raise params.inspect
   	@besapp = User.new(bes_params)
   	  	
     if @besapp.save
@@ -15,7 +14,7 @@ end
     end
   end
   def show
-    hhhhh
+    
        @visitor = User.find(params[:id])
 
   end
