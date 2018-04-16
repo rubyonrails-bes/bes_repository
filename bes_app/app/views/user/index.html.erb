@@ -20,8 +20,14 @@
     
   </ul>
 </nav>
-<div class="login-form-block">
+<% if flash[:notice] %>
+<div class="alert alert-success">
+      <div id="notice"><%= flash[:notice] %></div>
+<!-- <strong>Success!</strong> This alert box could indicate a successful or positive action.-->
+  </div>
+<% end %>
 
+<div class="login-form-block">
 <%= form_for User.new, :url => :user_create do |f| %>
 <div class="logo" > 
         <img src="logo.png" alt="logo" >  
@@ -34,11 +40,12 @@
   <%= f.label :Password%>
    <%= f.password_field :encrypted_password %>
    <text><b>Confirm <b></text><%= f.label :Password %>
-   <%= f.password_field :encrypted_password %></br>
+   <%= f.password_field :password_confirmation %></br>
  <%= f.submit :Register, class: 'btn btn-primary' , style: 'width:100%;' %>
 <% f.submit :Cancel, class: 'btn btn-danger', style: 'width:49%;' %></br></br>
 </div>
 <!--<div class="alert alert-success">Welcome to the Sample App!</div>-->
-
 <% end %>
+
+
 

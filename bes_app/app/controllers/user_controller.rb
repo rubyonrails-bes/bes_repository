@@ -1,7 +1,6 @@
 class UserController < ApplicationController
 
 def login_user
- #raise params[:user][:encrypted_password].inspect
  @user = User.find(:all,:conditions, :username => params[:user][:username],:encrypted_password => params[:user][:encrypted_password])
  
  if !@user.blank?
@@ -18,13 +17,10 @@ def new
 end
 
   def create
-    
-  	@besapp = User.new(bes_params)
-  	  	
+  	@besapp = User.new(user_params)
     if @besapp.save
-      llll
       
-      redirect_to :user_index, notice: 'Member was successfully saved.'
+      redirect_to :user_index, notice: 'Success! Registration was successfully saved.'
     else
       render :index
     end
@@ -42,8 +38,8 @@ end
     @besapp = User.find(params[:id])
   end
 
-  def bes_params
-
-    params.permit(:username,:email, :encrypted_password)
-  end
+def user_params
+  params.require(:user).permit(:username, :email, :encrypted_password, :password_confirmation)
+end
+  
 end
