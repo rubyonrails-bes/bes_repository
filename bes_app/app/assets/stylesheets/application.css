@@ -20,9 +20,9 @@
 h2{
   margin-bottom:10px;
 }
-form {
+/*form {
     border: 1px solid #03A9F4;
-}
+} */
 
 input[type=text], input[type=password] {
     width: 100%;
@@ -62,3 +62,19 @@ button:hover {
     width: 40%;
     border-radius: 50%;
 }
+
+ .main {
+      position:absolute;
+      left:50%;top:0;
+      transform:translate(-50%,0%);
+      -ms-transform:translate(-50%,0%);
+
+    }
+
+    form {
+      margin-top: 50px;
+    }
+
+    p {
+      text-align: center;
+    }
