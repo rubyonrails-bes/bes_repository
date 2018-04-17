@@ -20,7 +20,7 @@ end
   	@besapp = User.new(user_params)
     if @besapp.save
       
-      redirect_to :user_index, notice: 'Success! Registration was successfully saved.'
+      render :new, notice: 'Success! Registration was successfully saved.'
     else
       render :index
     end
