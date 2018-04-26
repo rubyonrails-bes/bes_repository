@@ -7,6 +7,8 @@ get 'user/index'
 get 'user/login_user'
 post 'user/login_user'
 post 'user/create'
+get 'user/home'
+post 'user/home'
 
 
 root "user#index"

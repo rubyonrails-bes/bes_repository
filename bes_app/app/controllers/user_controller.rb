@@ -1,16 +1,19 @@
 class UserController < ApplicationController
 
 def login_user
- @user = User.find(:all,:conditions, :username => params[:user][:username],:encrypted_password => params[:user][:encrypted_password])
- 
+ @user = User.where("username = ? AND encrypted_password = ?", params[:user][:username], params[:user][:encrypted_password] )
+ #raise @user.inspect
  if !@user.blank?
-  render :show
+  render :home, notice: 'Login Success!'
 else
-  redirect_to :root
+  redirect_to :user_new, notice: 'Incorrect Username/Password'
+    
 end
 end
 
-
+def login_params
+params.require(:user).permit(:username, :encrypted_password)
+end
 
 def new
 	@besapp = User.all
@@ -20,7 +23,7 @@ end
   	@besapp = User.new(user_params)
     if @besapp.save
       
-      render :new, notice: 'Success! Registration was successfully saved.'
+      redirect_to :user_index, notice: 'Success!  Registration Done.'
     else
       render :index
     end

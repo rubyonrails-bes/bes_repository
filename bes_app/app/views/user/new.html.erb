@@ -28,8 +28,23 @@
 
 
 <div class="login-form-block">
+  <% if flash[:notice] %>
+
+  <div class="alert alert-success" style="width:200px" >
+      <div id="notice"><%= flash[:notice] %></div>
+  </div>
+  <% else %>
+  <div class="alert alert-danger" style="width:200px" >
+      <div id="notice"><%= flash[:notice] %></div>
+  </div>
+  
+  <% end %>
+
 
 <%= form_for User.new, :url => user_login_user_path do |f| %>
+ <div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:100%"></div>
+  </div>
 <div class="logo" > 
         <img src="/assets/logo.png" alt="logo" >  
   </div>
@@ -39,9 +54,9 @@
   <%= f.label :Password%>
    <%= f.password_field :encrypted_password %></br></br>
  <%= f.submit :Login, class: 'btn btn-primary' , style: 'width:100%;' %>
+
 <% f.submit :Cancel, class: 'btn btn-danger', style: 'width:49%;' %></br></br></br>
 </div>
-<!--<div class="alert alert-success">Welcome to the Sample App!</div>-->
 
 <% end %>
 
