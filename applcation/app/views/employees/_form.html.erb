@@ -1,0 +1,38 @@
+<%= form_with(model: employee, local: true) do |form| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <div class="field">
+    <%= form.label :Name %>
+    <%= form.text_field :name %>
+  </div>
+   <div class="field">
+    <%= form.label :Designation %>
+    <%= form.text_field :designation %>
+  </div>
+   <div class="field">
+    <%= form.label :Image %>
+    <%= form.file_field :image_url %>
+  </div>
+   <div class="field">
+    <%= form.label :'Address for Communication' %>
+    <%= form.text_area :addres %>
+  </div>
+ 
+   <div class="field">
+    <%= form.label :Dob %>
+    <%= date_select("employees", "written_on",start_year: 1985, order: [:day, :month, :year]) %>
+  </div>
+
+  <div class="actions">  
+    <%= form.submit %>
+  </div>
+<% end %>
