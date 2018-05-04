@@ -20,7 +20,17 @@ class DashBoardsController < ApplicationController
   # GET /dash_boards/1/edit
   def edit
   end
+   
+  def check_link_details
+  @details = DashBoard.find_by_link_name(params[:name]).link_details
+   
+ render json: { "stat": @details.present? } 
 
+  end
+  def load_link_details
+ @link_details = DashBoard.find_by_link_name(params[:name]).link_details
+ 
+  end
   # POST /dash_boards
   # POST /dash_boards.json
   def create

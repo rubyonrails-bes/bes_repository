@@ -7,10 +7,10 @@
 
 development:
   adapter: postgresql
-  username: postgres
-  password: solution
-  database: postgres
-  host: localhost
+  username: bes_user
+  password: bes123
+  database: postgres_may2018
+  host: 192.168.1.66
   port: 5432
 
 # Warning: The database defined as "test" will be erased and
