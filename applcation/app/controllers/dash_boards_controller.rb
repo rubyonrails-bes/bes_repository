@@ -29,7 +29,7 @@ class DashBoardsController < ApplicationController
   end
   def load_link_details
  @link_details = DashBoard.find_by_link_name(params[:name]).link_details
- 
+ render :layout => false
   end
   # POST /dash_boards
   # POST /dash_boards.json

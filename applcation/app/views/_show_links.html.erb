@@ -1,7 +1,5 @@
 
 
-
-
 <style>
 
 	.tabs{
@@ -30,54 +28,13 @@ table td{
 <tr>
 <td bgcolor="#555555">
 <div class = "tabs">
-    <%@detail = link.link_details%>
 <b><%= link.link_name  %></b>
-<div id='detail_links'>
 </div>
-
+<div class = "hide_show" id="detail_links_<%=link.link_name.split(" ")[0]%>">
 </div>
-
 </td><br/>
 </tr>
 <%end%>
 
 </table>
 
-<script			  src="https://code.jquery.com/jquery-3.3.1.min.js"
-			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			  crossorigin="anonymous"></script>
-
-              <script>
-    $('.tabs').click(function(){
-        var parm = $(this).text();
- $.ajax({
-        url:"/check_link_details?name="+parm,
-         async: false,
-        success: function(result){
-if (result.stat == true){
-load_links(parm);
-
-}
-else{
-load_pages()
-
-}
-                            }
-                               });
- });
-    
-function load_links(x){
-var pars = x;
-$.ajax({
-        url:"/load_link_details?name="+pars,
-         async: false,
-          success: function(result){
-alert(234);
-            $('#detail_links').html(result);
-
-
-
-}});
-
-}
-              </script>
