@@ -2,7 +2,7 @@
 
 <style>
 
-	.tabs{
+    .tabs{
 
  /* Green */
     border: none;
@@ -30,7 +30,7 @@ table td{
 <div class = "tabs">
 <b><%= link.link_name  %></b>
 </div>
-<div class = "hide_show" id="detail_links_<%=link.link_name.split(" ")[0]%>">
+<div class = "hide_show" id="detail_links_<%= link.link_name.split(' ')[0] rescue nil%>">
 </div>
 </td><br/>
 </tr>
