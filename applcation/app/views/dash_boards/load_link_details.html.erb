@@ -1,0 +1,5 @@
+
+<%for detail in @link_details%>
+
+<div style="background-color:  #23b2a1 ; border-color: green; border-radius: 3px;"><font color="White" size="3"><b><a id = 'det_links', href= "javascript:checkDetail('<%=detail.detail_name %>');"><%=detail.detail_name%></a></b><hr /></font></div>
+<%end%>

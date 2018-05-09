@@ -1,0 +1,54 @@
+<%= form_with(model: employee, local: true) do |form| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table align='center' class="tablecss" cellspacing=0 cellpadding=5 align=center width="100%" >
+<tr>
+  <td colspan = "1"><%= form.label :Employee_Type %></td>
+  <td colspan = "1"> <%= form.select :name, %w{select Employee Manager CO} %></td>
+</tr>
+<tr>
+  <td colspan = "1"><%= form.label :Name %></td>
+  <td colspan = "1"> <%= form.text_field :name %></td>
+</tr>
+<tr>
+ <td colspan = "1"><%= form.label :Designation %></td>
+ <td colspan = "1"><%= form.text_field :designation %></td>
+</tr>
+<tr>
+  <td colspan = "1"><%= form.label :To_Report %></td>
+  <td colspan = "1"><%= form.select :designation, %w{select Employee Manager CO} %></td></tr>
+<tr>
+  <td colspan = "1"><%= form.label :Image %></td>
+  <td colspan = "1"><%= form.file_field :image_url %></td>
+</tr>
+<tr>
+  <td colspan = "1"><%= form.label :'Address for Communication' %></td>
+  <td colspan = "1"><%= form.text_area :addres %></td>
+</tr>
+<tr>
+  <td colspan = "1"><%= form.label :Hire_Date %></td>
+  <td colspan = "1"><%= form.text_field :designation %></td>
+</tr>
+<tr>
+  <td colspan = "1"><%= form.label :Dob %></td>
+  <td colspan = "1"><%= date_select("employees", "written_on",start_year: 1985, order: [:day, :month, :year]) %></td>
+</tr>
+<tr>
+  <td colspan = "2">
+  <div class="actions">  <hr>
+    <center><%= form.submit %></center>
+  </div>
+</td>
+</tr>
+</tr>
+</table>
+<% end %>

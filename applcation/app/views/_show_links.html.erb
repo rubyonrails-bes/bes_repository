@@ -1,0 +1,117 @@
+
+
+<style>
+
+    .tabs{
+
+ /* Green */
+    border: none;
+    color: white;
+    padding: 10px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+
+}
+table td{
+    border: 1px solid white;
+  }
+
+</style>
+<table class="tablecss" cellspacing=0 cellpadding=5 align=center width="100%" >
+<% !current_user.nil? && current_user.has_role?(:employee) ? @links = DashBoard.where("link_role=?", 'Employee').order('id ASC') : @links = DashBoard.all.order('id ASC')%>
+<%for link in @links%>
+<tr>
+<td bgcolor="#555555">
+<div class = "tabs">
+<b><%= link.link_name  %></b>
+</div>
+<div class = "hide_show" id="detail_links_<%= link.link_name.split(' ')[0] rescue nil%>">
+</div>
+</td><br/>
+</tr>
+<%end%>
+
+</table>
+
+<script       src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+              <script>
+$(document).ready(function() {
+
+$('.hide_show').hide();
+});
+
+    $('.tabs').click(function(){
+        var parm = $(this).text();
+         var id1 = 'detail_links_';
+       var id2 = new String(parm.split(" ")[0]);
+       var res = id1.concat(id2);
+       var res1 = new String(res.replace(/\n|\r/g, ""));
+        if ($('#'+ res1).is(':hidden') == true){
+         $('#'+ res1).show();
+        $.ajax({
+        url:"/check_link_details?name="+parm,
+         async: false,
+        success: function(result){
+              if (result.stat == true){
+                        load_links(parm);
+
+              }
+              else{
+              load_pages(parm);
+              }
+        }
+                               
+        });
+      }
+      else{
+ $('#'+ res1).hide(); 
+      }
+     });
+
+    
+function load_links(x){
+var pars = x;
+$.ajax({
+        url:"/load_link_details?name="+pars,
+         async: false,
+          success: function(result){
+
+       var id1 = 'detail_links_';
+       var id2 = new String(pars.split(" ")[0]);
+       var res = id1.concat(id2);
+       var res1 = new String(res.replace(/\n|\r/g, ""));
+            $('#'+ res1).html(result);
+
+}});
+
+}
+function load_pages(param){
+alert('no details');
+
+
+}
+
+function checkDetail(e){
+
+$.ajax({
+        url:"/employees/new?from=start",
+         async: false,
+          success: function(result){
+            $('.col-sm-10').html(result);
+
+}});
+
+
+}
+
+
+
+              </script>
