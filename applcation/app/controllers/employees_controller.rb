@@ -22,7 +22,10 @@ end
   # GET /employees/new
   def new
     @employee = Employee.new
-  end
+if params[:from] == 'start'
+render :layout => false
+end  
+end
 
   # GET /employees/1/edit
   def edit

@@ -22,8 +22,8 @@ table td{
   }
 
 </style>
-<table align='center' class="tablecss" cellspacing=0 cellpadding=5 align=center width="100%" >
-<%current_user.has_role?(:employee) ? @links = DashBoard.where("link_role=?", 'Employee').order('id ASC') : @links = DashBoard.all.order('id ASC')%>
+<table class="tablecss" cellspacing=0 cellpadding=5 align=center width="100%" >
+<% !current_user.nil? && current_user.has_role?(:employee) ? @links = DashBoard.where("link_role=?", 'Employee').order('id ASC') : @links = DashBoard.all.order('id ASC')%>
 <%for link in @links%>
 <tr>
 <td bgcolor="#555555">
@@ -38,3 +38,80 @@ table td{
 
 </table>
 
+<script       src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+              <script>
+$(document).ready(function() {
+alert(34545);
+$('.hide_show').hide();
+});
+
+    $('.tabs').click(function(){
+        var parm = $(this).text();
+         var id1 = 'detail_links_';
+       var id2 = new String(parm.split(" ")[0]);
+       var res = id1.concat(id2);
+       var res1 = new String(res.replace(/\n|\r/g, ""));
+        if ($('#'+ res1).is(':hidden') == true){
+         $('#'+ res1).show();
+        $.ajax({
+        url:"/check_link_details?name="+parm,
+         async: false,
+        success: function(result){
+              if (result.stat == true){
+                        load_links(parm);
+
+              }
+              else{
+              load_pages(parm);
+              }
+        }
+                               
+        });
+      }
+      else{
+ $('#'+ res1).hide(); 
+      }
+     });
+
+    
+function load_links(x){
+var pars = x;
+$.ajax({
+        url:"/load_link_details?name="+pars,
+         async: false,
+          success: function(result){
+
+       var id1 = 'detail_links_';
+       var id2 = new String(pars.split(" ")[0]);
+       var res = id1.concat(id2);
+       var res1 = new String(res.replace(/\n|\r/g, ""));
+            $('#'+ res1).html(result);
+
+}});
+
+}
+function load_pages(param){
+alert('no details');
+
+
+}
+
+function checkDetail(e){
+
+$.ajax({
+        url:"/employees/new?from=start",
+         async: false,
+          success: function(result){
+            $('.col-sm-10').html(result);
+
+}});
+
+
+}
+
+
+
+              </script>
