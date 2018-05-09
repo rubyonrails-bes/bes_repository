@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Name:</strong>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <strong>Designation:</strong>
+  <%= @employee.designation %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= image_tag(@employee.image_url.to_s) %>
+</p>
+
+<p>
+  <strong>Addres to Communicate:</strong>
+  <%= @employee.addres %>
+</p>
+<p>
+  <strong>Date of Birth:</strong>
+  <%= "#{@employee.date}/#{@employee.month}/#{@employee.year}" %>
+</p>
+
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

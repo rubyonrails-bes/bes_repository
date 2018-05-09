@@ -1,4 +1,3 @@
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,33 +8,48 @@
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-</head>
+</head
+
 <!------ Include the above in your HEAD tag ---------->
-<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+<nav class="navbar navbar-expand-sm bg-white navbar-dark">
   <!-- Brand/logo -->
   <a class="navbar-brand" href="http://indiaerp.com/tally/" target="blank">
-    <img src="logo.png" alt="logo" style="width:30px">
+    <img src="/assets/logo_tally.png" alt="logo" style="width:200px">
   </a>
 
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="http://indiaerp.com/tally/" target="blank" style="font-size:20px; color:white">B E Solutions Private Limited</a>
+      <a class="nav-link" href="http://indiaerp.com/tally/" target="blank" style="font-size:14px; color:black">B E Solutions Private Limited</a>
     </li>
     
   </ul>
 </nav>
 
-</br></br>
 
 <div class="login-form-block">
-<h3>Admin Login</h3>
 
+<<<<<<< HEAD
 <form action="user/login_user">
   <div class="logo">
         <img src="logo.png" alt="logo">  
+=======
+<%= form_for User.new, :url => user_login_user_path do |f| %>
+<div class="logo" > 
+        <img src="/assets/logo.png" alt="logo" >  
+>>>>>>> 44d4d1d996d17c1f2a6fb06d7c12600ace72f8ad
   </div>
+ <div class="container" border="1">
+  <%= f.label :Username  %><br />
+  <%= f.text_field :username  %>
+  <%= f.label :Password%>
+   <%= f.password_field :encrypted_password %></br></br>
+ <%= f.submit :Login, class: 'btn btn-primary' , style: 'width:100%;' %>
+<% f.submit :Cancel, class: 'btn btn-danger', style: 'width:49%;' %></br></br></br>
+</div>
+<!--<div class="alert alert-success">Welcome to the Sample App!</div>-->
 
+<<<<<<< HEAD
   <div class="container" border="1">
     <label><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
@@ -52,3 +66,7 @@
  
 </form>
 </div> 
+=======
+<% end %>
+
+>>>>>>> 44d4d1d996d17c1f2a6fb06d7c12600ace72f8ad

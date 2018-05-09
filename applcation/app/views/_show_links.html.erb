@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+	.tabs{
+
+ /* Green */
+    border: none;
+    color: white;
+    padding: 10px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+
+}
+table td{
+    border: 1px solid white;
+    padding-top: 12px;
+  }
+body { 
+    display: block;
+    margin: 1px;
+}
+ 
+</style>
+</head>
+<body>
+<table align='center' class="tablecss" cellspacing=0 cellpadding=5 align=center width="100%" >
+<%current_user.has_role?(:employee) ? @links = DashBoard.where("link_role=?", 'Employee').order('id ASC') : @links = DashBoard.all.order('id ASC')%>
+<%for link in @links%>
+<tr>
+<td bgcolor="#555555">
+<div class = "tabs">
+<b><%= link.link_name  %></b>
+</div>
+<div class = "hide_show" id="detail_links_<%=link.link_name.split(" ")[0] rescue nil %>">
+</div>
+</td><br/>
+</tr>
+<%end%>
+</table>
+</body>
+</html>
+
