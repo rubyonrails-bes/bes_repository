@@ -24,6 +24,9 @@ end
   # GET /employees/new
   def new
     @employee = Employee.new
+    if params[:from] == 'start'
+render :layout => false
+end 
     #render :layout => false
   end
 

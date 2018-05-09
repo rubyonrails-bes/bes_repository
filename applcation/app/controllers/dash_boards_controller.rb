@@ -47,7 +47,6 @@ class DashBoardsController < ApplicationController
       end
     end
   end
-
   # PATCH/PUT /dash_boards/1
   # PATCH/PUT /dash_boards/1.json
   def update
@@ -75,8 +74,13 @@ class DashBoardsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dash_board
+      if current_user.has_role?(:admin)
       @dash_board = DashBoard.find(params[:id])
-    end
+    else
+      flash[:notice]= "you dont have acces"
+      redirect_to :action => 'index'
+end
+end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dash_board_params
