@@ -25,8 +25,12 @@ development:
   <<: *default
   username: bes_user
   password: bes123
-  host    : localhost #192.168.1.66 
-  #host    : 192.168.1.66  #localhost
+<<<<<<< HEAD
+  #host    : localhost #192.168.1.66 
+=======
+ # host    : localhost #192.168.1.66 
+>>>>>>> 44d4d1d996d17c1f2a6fb06d7c12600ace72f8ad
+  host    : 192.168.1.66  #localhost
   port    : 5432
   database: bes_app_02_apr_18
 

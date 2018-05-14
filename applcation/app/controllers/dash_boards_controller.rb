@@ -46,6 +46,11 @@ class DashBoardsController < ApplicationController
     end
   end
 
+def show_organization_chart
+@ceo_emp = Employee.where("level =?" ,  "CEO")
+render :layout => false
+end
+
   # PATCH/PUT /dash_boards/1
   # PATCH/PUT /dash_boards/1.json
   def update

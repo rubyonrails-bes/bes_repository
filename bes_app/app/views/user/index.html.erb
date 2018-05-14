@@ -1,3 +1,78 @@
+<<<<<<< HEAD
+<%= link_to "Login", {:controller => 'user', :action => 'new'} %>
+<style>
+select{
+   border: 1px solid #5a90cc;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+body{
+   background-color: #e6f2ff;
+}
+fieldset{
+   border: 1px solid #5a90cc;
+   background-color: #e6f2ff;
+    border: 0.6px solid #5a90cc;
+    
+}
+
+.buttons {
+    background: rgba(0, 0, 0, 0) url("/images/btn_img1.gif") repeat scroll 0 0;
+    margin-left: 60pt; 
+    border: 1px solid #5a90cc;
+    color: black;
+    font-family: arial;
+    font-size: 13px;
+    font-style: normal;
+    height: 23px;
+    width: 120px;
+    
+}
+table.tablecss, table.tablecss td, table.tablecss th {
+    border: 0.4px solid #5a90cc;
+    clear: both;
+    empty-cells: show;
+}
+</style>
+<body>
+<%= form_for :User, :url => { :controller => 'user',:action => "create" } do |f| %>
+<fieldset>
+
+
+<table align='center' class="tablecss" cellspacing=0 cellpadding=5 align=center width="100%" >
+<%= fields_for :user  do |f| %>
+ 
+
+<tr>
+            <td colspan = "2"><%= ("Name")%></td>
+            <td colspan = "2"><%= f.text_area :name,:label=>"Name",:rows => '1', :cols => '40'%></td>
+            
+</tr>
+
+<tr>
+           <td colspan = "2"><%= ("Username")%></td> 
+           <td colspan = "2"><%= f.text_area :username,:label=>"username",:rows => '1', :cols => '40'%></td>
+</tr>
+<tr>
+	   <td colspan = "2"><%=("Password")%></td>
+           <td colspan = "2"><%= f.text_area :password,:label=>"Password",:rows => '1', :cols => '40'%></td>
+</tr>
+<tr>
+	   <td colspan = "2"><%=("Status")%></td>
+           <td colspan = "2"><%= f.text_area :status,:label=>"Status",:rows => '1', :cols => '40'%></td>
+</tr>
+<%end %>
+
+</table>
+
+</fieldset><br><br>
+<div align = 'center'>
+       <%=submit_tag ("Save"),{:controller => 'user', :action => 'create',:id=>'submit_data',:class=>"buttons"}%>
+  </div>
+<% end %>
+</body>
+=======
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,4 +123,5 @@
 <% end %>
 
 
+>>>>>>> 44d4d1d996d17c1f2a6fb06d7c12600ace72f8ad
 

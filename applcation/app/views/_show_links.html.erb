@@ -94,7 +94,13 @@ $.ajax({
 
 }
 function load_pages(param){
-alert('no details');
+
+$.ajax({
+        url:"/organization_chart",
+         async: false,
+          success: function(result){
+            $('.col-sm-10').html(result);
+}});
 
 
 }

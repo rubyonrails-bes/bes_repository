@@ -26,9 +26,12 @@
 #password_confirmation: 'employee1234')
 #user4.add_role(:employee)
 
-#Dsb =DashBoard.find_by_link_name('organization chart')
-#DashBoard.create(link_name: :'HR Links')
-#Dsb = DashBoard.find_by_link_name('HR Links')
-#Dsb.link_details.create(detail_name: :'Employee creation')
-#Dsb.link_details.create(detail_name: :'Employee Data Update')
-#Dsb.update_attributes(link_role: :'Employee')
+DashBoard.create(link_name: :'HR Links')
+DashBoard.create(link_name: :'organization chart')
+
+Dsb = DashBoard.find_by_link_name('HR Links')
+Dsb.link_details.create(detail_name: :'Employee creation')
+Dsb.link_details.create(detail_name: :'Employee Data Update')
+Dsb2 =DashBoard.find_by_link_name('organization chart')
+Dsb2.update_attributes(link_role: :'Employee')
+

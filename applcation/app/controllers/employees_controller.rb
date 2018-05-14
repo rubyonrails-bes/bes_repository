@@ -31,15 +31,28 @@ end
   # GET /employees/1/edit
   def edit
   end
+def check_employee_type
 
+if params[:type] == "Employee"
+
+@employee_typ = Employee.where("level = ?","Manager")
+elsif params[:type] == "Manager"
+@employee_typ = Employee.where("level = ?","CEO")
+end
+render :layout => false
+end
   # POST /employees
   # POST /employees.json
   def create
+
     @employee = Employee.new(employee_params)
     @employee.date = params[:employees]["written_on(3i)"]
     @employee.month = params[:employees]["written_on(2i)"]
     @employee.year = params[:employees]["written_on(1i)"]
+    @employee.level = params[:employee][:level]
+    @employee.parent_id = params[:employee][:parent_id].to_i if !params[:employee][:parent_id].blank?
     @employee.user_id = current_user.id
+    
     respond_to do |format|
       if @employee.save
         format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
@@ -83,6 +96,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
+
       params.require(:employee).permit(:name,:designation,:image_url,:addres)
     end
 end

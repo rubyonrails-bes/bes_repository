@@ -1,0 +1,8 @@
+
+<td colspan = "1"><b><%=  "To Report" %></td>
+<%if @employee_typ.blank?%>
+
+  <td colspan = "1"><%= collection_select(:employee,:name, Employee.all,:id,:name) %></td>
+<%else%>
+  <td colspan = "1"><%= collection_select(:employee, :parent_id, @employee_typ, :id, :name) %></td>
+<%end%>
