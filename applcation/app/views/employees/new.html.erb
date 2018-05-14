@@ -1,5 +1,44 @@
-<h1>New Employee</h1>
 
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+h1 { 
+    display: block;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    color: #006400;
+    
+}
+table td{
+    border: 1px solid black;
+   width: 1005px;
+  }
+  body { 
+    display: block;
+    margin: 4px;
+}
+body:focus { 
+    outline: none;
+ 
+</style>
+</head>
+<body align ='center'>
+<h1><center>New Employee</center></h1>
+  <table align='center' class="tablecss" cellspacing=0 cellpadding=5 align=center width="100%" >
+<tr><td>
 <%= render 'form', employee: @employee %>
+</td></tr>
+<tr><td>
+<%= link_to 'Back', dash_boards_path %>
+</td></tr>
+</td></tr></table>
+</body>
+</html>
 
-<%= link_to 'Back', employees_path %>

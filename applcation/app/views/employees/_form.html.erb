@@ -1,4 +1,4 @@
-<%= form_with(model: employee, local: true) do |form| %>
+<%= form_for @employee do |form| %>
   <% if employee.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
@@ -11,47 +11,67 @@
     </div>
   <% end %>
   <table align='center' class="tablecss" cellspacing=0 cellpadding=5 align=center width="100%" >
+
 <tr>
-  <td>
- <div class="field">
-    <%= form.label :Name %>
-    <%= form.text_field :name %>
+  <td colspan = "1"><%= form.label :Name %></td>
+  <td colspan = "1"><%= form.text_field :name %></td>
+</tr>
+<tr>
+ <td colspan = "1"><%= form.label :Designation %></td>
+ <td colspan = "1"><%= form.text_field :designation %></td>
+</tr>
+
+<tr>
+  <td colspan = "1"><%= form.label "Employee Type" %></td>
+  <td colspan = "1"> <%= form.select :level, ["Employee", "Manager", "CEO"], :prompt=> "select type" %></td>
+</tr>
+<tr id ='report'>
+  
+<tr>
+  <td colspan = "1"><%= form.label :Image %></td>
+  <td colspan = "1"><%= form.file_field :image_url %></td>
+</tr>
+<tr>
+  <td colspan = "1"><%= form.label :'Address for Communication' %></td>
+  <td colspan = "1"><%= form.text_area :addres %></td>
+</tr>
+<tr>
+  <td colspan = "1"><%= form.label :Dob %></td>
+  <td colspan = "1"><%= date_select("employees", "written_on",start_year: 1985, order: [:day, :month, :year]) %></td>
+</tr>
+<tr>
+  <td colspan = "2">
+  <div class="actions" id ="action">  <hr>
+    <center><%= form.submit %></center>
   </div>
 </td>
 </tr>
-<tr>
-<td>
-   <div class="field">
-    <%= form.label :Designation %>
-    <%= form.text_field :designation %>
-  </div>
-</td></tr>
-<tr>
-<td>
-   <div class="field">
-    <%= form.label :Image %>
-    <%= form.file_field :image_url %>
-  </div>
-</td>
 </tr>
-<tr>
-<td>
-   <div class="field">
-    <%= form.label :'Address for Communication' %>
-    <%= form.text_area :addres %>
-  </div>
- </td></tr>
- <tr>
- <td>
-   <div class="field">
-    <%= form.label :Dob %>
-    <%= date_select("employees", "written_on",start_year: 1985, order: [:day, :month, :year]) %>
-  </div>
-</td></tr>
-<tr><td>
-  <div class="actions">  
-    <%= form.submit %>
-  </div>
-</td></tr></tr>
 </table>
 <% end %>
+
+<script>
+
+
+$('#report').hide();
+$('#employee_level').change(function(){
+var selectedText = $(this).find("option:selected").text();
+if (selectedText == "CEO"){
+$('#report').hide();
+
+}
+else{
+$.ajax({
+        url:"/check_employee_type?type="+selectedText,
+         async: false,
+          success: function(result){
+alert(result);
+$('#report').show();
+
+
+$('#report').html(result);
+alert(123);
+}});
+}
+});
+</script>

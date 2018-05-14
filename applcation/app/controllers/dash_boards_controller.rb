@@ -1,11 +1,10 @@
 class DashBoardsController < ApplicationController
   before_action :set_dash_board, only: [:show, :edit, :update, :destroy]
-  
+
   # GET /dash_boards
   # GET /dash_boards.json
   def index
     @dash_boards = DashBoard.all
-
   end
 
   # GET /dash_boards/1
@@ -21,8 +20,7 @@ class DashBoardsController < ApplicationController
   # GET /dash_boards/1/edit
   def edit
   end
-   
-  def check_link_details
+ def check_link_details
   @details = DashBoard.find_by_link_name(params[:name]).link_details
    
  render json: { "stat": @details.present? } 
@@ -47,6 +45,11 @@ class DashBoardsController < ApplicationController
       end
     end
   end
+
+def show_organization_chart
+@ceo_emp = Employee.where("level =?" ,  "CEO")
+render :layout => false
+end
 
   # PATCH/PUT /dash_boards/1
   # PATCH/PUT /dash_boards/1.json
@@ -75,12 +78,7 @@ class DashBoardsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dash_board
-     if current_user.has_role?(:admin)
       @dash_board = DashBoard.find(params[:id])
-    else
-      flash[:notice]= "you dont have acces"
-      redirect_to :action => 'index'
-    end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -6,5 +6,8 @@ Rails.application.routes.draw do
  get 'users/signout' 
  get 'load_link_details' => 'dash_boards#load_link_details'
  get 'check_link_details' => 'dash_boards#check_link_details' 
-root to: "dash_boards#index"
+ get 'check_employee_type' => 'employees#check_employee_type'
+ get 'organization_chart' => 'dash_boards#show_organization_chart'
+
+ root to: "dash_boards#index"
 end
