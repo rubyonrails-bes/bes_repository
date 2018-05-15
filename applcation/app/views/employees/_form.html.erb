@@ -65,12 +65,10 @@ $.ajax({
         url:"/check_employee_type?type="+selectedText,
          async: false,
           success: function(result){
-alert(result);
 $('#report').show();
 
 
 $('#report').html(result);
-alert(123);
 }});
 }
 });
