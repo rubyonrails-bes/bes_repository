@@ -31,7 +31,12 @@ end
   # GET /employees/1/edit
   def edit
   end
-def check_employee_type
+
+  def search_employee
+  render :layout => false
+  end
+
+  def check_employee_type
 
 if params[:type] == "Employee"
 

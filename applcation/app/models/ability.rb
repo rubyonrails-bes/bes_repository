@@ -8,7 +8,7 @@ class Ability
     elsif user.manager?
       can :manage, Employee
      elsif user.hr?
-        can [:create,:update,:read], Employee
+        can [:manage], Employee
       else user.employee?
       can :read, :all
     end

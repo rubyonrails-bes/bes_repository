@@ -7,9 +7,9 @@
 
 development:
   adapter: postgresql
-  username: postgres
-  password: solution
-  database: postgres
+  username: bes_user
+  password: bes123
+  database: postgres_may2018
   host: localhost
   port: 5432
 

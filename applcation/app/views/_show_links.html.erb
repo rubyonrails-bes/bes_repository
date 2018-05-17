@@ -106,9 +106,9 @@ $.ajax({
 }
 
 function checkDetail(e){
-
+alert(e);
 $.ajax({
-        url:"/employees/new?from=start",
+        url:e,
          async: false,
           success: function(result){
             $('.col-sm-10').html(result);
