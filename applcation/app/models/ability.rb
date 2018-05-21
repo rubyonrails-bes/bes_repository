@@ -8,7 +8,11 @@ class Ability
     elsif user.manager?
       can :manage, Employee
      elsif user.hr?
+<<<<<<< HEAD
         can [:create,:update,:read,:search_employee,:emp_list_show], Employee
+=======
+        can [:manage], Employee
+>>>>>>> d986617829496e0c9344ebd3e0f58b55ff855097
       else user.employee?
       can :read, :all
     end
