@@ -25,75 +25,10 @@
   <strong>Date of Birth:</strong>
   <%#= "#{@employee.date}/#{@employee.month}/#{@employee.year}" %>
 </p>
-<<<<<<< HEAD
 <%if ( current_user.has_role?(:admin) || current_user.has_role?(:hr))%>
 <%= link_to 'Edit', edit_employee_path(@employee) %> <%#= link_to 'Back', employees_path %>
 <%end%>
-=======
 
-roopesh
-<%#= link_to 'Edit', edit_employee_path(@employee) %> |
 <%#= link_to 'Back', employees_path %>
 </html>
--->
 
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 600px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-}
-
-.title {
-  color: grey;
-  font-size: 12px;
-}
-
-button {
-
- text-align: center;
-  width: 30%;
-  font-size: 15px;
-}
-
-a {
-  text-decoration: none;
-  font-size: 22px;
-  color: black;
-}
-
-button:hover, a:hover {
-  opacity: 0.7;
-}
-</style>
-</head>
-<body>
-
-<h2 style="text-align:center">Employee Details</h2>
-
-<div class="card">
-  <img src= "/assets/index.png" alt="pavan kalyan" style="width:20%">
-  <h3>Pavan Kalyan</h3>
-  <p class="title">CEO & Founder, Software Company</p>
-  <p>Harvard University</p>
-  <div style="margin: 24px 0;">
-    <a href="#"><i class="fa fa-dribbble"></i></a> 
-    <a href="#"><i class="fa fa-twitter"></i></a>  
-    <a href="#"><i class="fa fa-linkedin"></i></a>  
-    <a href="#"><i class="fa fa-facebook"></i></a> 
- </div>
- <!--<p><button>Contact</button></p>-->
- <button type="button" class="btn btn-info">Contact</button>
-</div>
-
-</body>
-</html>
-
-
->>>>>>> d986617829496e0c9344ebd3e0f58b55ff855097
