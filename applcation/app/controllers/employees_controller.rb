@@ -31,6 +31,18 @@ end
   # GET /employees/1/edit
   def edit
   end
+  def emp_list_show
+if params[:from] == "search"
+@emp_list = Employee.where("name ilike ?", "%#{params[:name]}%")
+#raise @emp_list.inspect
+end
+
+render :layout=> false
+  end
+def search_employee
+render :layout=> false
+end
+
 def check_employee_type
 
 if params[:type] == "Employee"

@@ -18,7 +18,7 @@
 
 }
 table td{
-    border: 1px solid white;
+    border: 3px solid white;
   }
 
 </style>
@@ -26,7 +26,7 @@ table td{
 <% !current_user.nil? && current_user.has_role?(:employee) ? @links = DashBoard.where("link_role=?", 'Employee').order('id ASC') : @links = DashBoard.all.order('id ASC')%>
 <%for link in @links%>
 <tr>
-<td bgcolor="#555555">
+<td bgcolor="#556B2F">
 <div class = "tabs">
 <b><%= link.link_name  %></b>
 </div>
@@ -106,9 +106,8 @@ $.ajax({
 }
 
 function checkDetail(e){
-
 $.ajax({
-        url:"/employees/new?from=start",
+        url:e,
          async: false,
           success: function(result){
             $('.col-sm-10').html(result);
