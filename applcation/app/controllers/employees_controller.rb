@@ -31,6 +31,7 @@ end
   # GET /employees/1/edit
   def edit
   end
+<<<<<<< HEAD
   def emp_list_show
 if params[:from] == "search"
 @emp_list = Employee.where("name ilike ?", "%#{params[:name]}%")
@@ -45,6 +46,10 @@ end
 
 def check_employee_type
 
+=======
+def check_employee_type
+
+>>>>>>> a47bd15db4acc67cd5ab0380e5fdde5538f8156b
 if params[:type] == "Employee"
 
 @employee_typ = Employee.where("level = ?","Manager")

@@ -10,7 +10,11 @@ development:
   username: postgres
   password: solution
   database: postgres
+<<<<<<< HEAD
   host: localhost 
+=======
+  host: localhost
+>>>>>>> a47bd15db4acc67cd5ab0380e5fdde5538f8156b
   port: 5432
 
 production:
