@@ -1,11 +1,71 @@
+
 <%for emp in @ceo_emp%>
- <div class="btn btn-primary">
-<%=image_tag("plus-button-green.png",  size: "20x15",alt: "MyInc Logo")%><%= emp.name%>
-</div>
+ 
+
+ <div  align="left",  id ="<%emp.name%>">
+<%= image_tag("plus-button-green.png",:class => "plus",:id=> "#{emp.name}_plus", size: "20x20", onclick: "checksub('#{emp.name}','plus')".html_safe)%>
+<%= image_tag("minus.jpeg", :class => "minus", :id => "#{emp.name}_minus" ,size: "20x20", onclick: "checksub('#{emp.name}','minus')".html_safe)%>
+
+<%= emp.name%>
+<td>
+  <%= link_to 'Show', emp %>
+</td>
+<br />
+
+</div> 
 <%@sub = emp.subordinates%>
 <%if !@sub.blank?%>
+<div id = "<%= emp.name%>" style ="display:none;">
 <%for sub in @sub%>
-<h4><%= sub.name%></h4>
+ <div  id ="<%sub.name%>", align="left">
+ 	<td>
+  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<%= image_tag("plus-button-green.png",:class => "plus",:id=> "#{sub.name}_plus", size: "20x20", onclick: "checksub('#{sub.name}','plus')".html_safe)%>
+<%= image_tag("minus.jpeg", :class => "minus", :id => "#{sub.name}_minus" ,size: "20x20", onclick: "checksub('#{sub.name}','minus')".html_safe)%>
+<%= sub.name%>
+<%= link_to 'Show', sub %>
+ </td>
+</div>
+
+<%@level3 = sub.subordinates %>
+<%if !@level3.blank?%>
+<div align="left" id = "<%= sub.name%>" style ="display:none;">
+<%for level3 in @level3%>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+<%= level3.name%>
+<td>
+  <%= link_to 'Show', level3 %>
+ </td>
+<br />
+<%end%>
+</div>
 <%end%>
 <%end%>
+</div>
 <%end%>
+<%end%>
+<script>
+	$('.minus').hide();
+	function checksub(x,y){
+var res =  new String(x);
+if (y == 'plus'){
+	$('#'+res+'_plus').hide();
+  	$('#'+res+'_minus').show();
+$('#'+res).show();
+    
+}
+else{
+$('#'+res+'_plus').show();
+$('#'+res+'_minus').hide();
+$('#'+res).hide();
+
+}
+
+	}
+
+</script>

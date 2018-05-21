@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_10_062538) do
+ActiveRecord::Schema.define(version: 2018_05_16_114044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2018_05_10_062538) do
     t.string "detail_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "url_path"
     t.index ["dash_board_id"], name: "index_link_details_on_dash_board_id"
   end
 

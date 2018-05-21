@@ -22,7 +22,6 @@
   <strong>Date of Birth:</strong>
   <%= "#{@employee.date}/#{@employee.month}/#{@employee.year}" %>
 </p>
-
-
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
+<%if ( current_user.has_role?(:admin) || current_user.has_role?(:hr))%>
+<%= link_to 'Edit', edit_employee_path(@employee) %> <%#= link_to 'Back', employees_path %>
+<%end%>

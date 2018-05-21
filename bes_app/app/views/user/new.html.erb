@@ -16,7 +16,7 @@
   <a class="navbar-brand" href="http://indiaerp.com/tally/" target="blank">
     <img src="/assets/logo_tally.png" alt="logo" style="width:200px">
   </a>
-  
+
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
@@ -29,9 +29,15 @@
 
 <div class="login-form-block">
 
+<<<<<<< HEAD
+<form action="user/login_user">
+  <div class="logo">
+        <img src="logo.png" alt="logo">  
+=======
 <%= form_for User.new, :url => user_login_user_path do |f| %>
 <div class="logo" > 
         <img src="/assets/logo.png" alt="logo" >  
+>>>>>>> 44d4d1d996d17c1f2a6fb06d7c12600ace72f8ad
   </div>
  <div class="container" border="1">
   <%= f.label :Username  %><br />
@@ -43,5 +49,24 @@
 </div>
 <!--<div class="alert alert-success">Welcome to the Sample App!</div>-->
 
+<<<<<<< HEAD
+  <div class="container" border="1">
+    <label><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required></br></br>
+     
+    <button type="submit" class="btn btn-primary">Login</button>
+    
+    <button type="button" class="btn btn-danger">Cancel</button></br></br></br>
+
+  
+  </div>
+ 
+</form>
+</div> 
+=======
 <% end %>
 
+>>>>>>> 44d4d1d996d17c1f2a6fb06d7c12600ace72f8ad

@@ -1,0 +1,23 @@
+<style>
+.backgroundGradient {
+        background: linear-gradient(to bottom, white, #008080);
+        color: white;
+    }
+tr:nth-child(even) {background-color: #A9A9A9;}
+tr:nth-child(odd) {background-color: #DCDCDC;}
+
+</style>
+<%if !@emp_list.blank?%>
+<table border="4px" >
+<%for emp in @emp_list %>
+<tr><td width="20%" ><%= image_tag "#{emp.image_url}", {:style=>"width:40%; height:40%;"}%>
+	</td><td>
+<%= emp.name%>
+</td><td>
+ <%= link_to 'Show', emp %></td><td>
+<%if ( current_user.has_role?(:admin) || current_user.has_role?(:hr))%> 
+<%= link_to 'Edit', edit_employee_path(emp) %><%end%></td>
+</tr>
+<%end%>
+</table>
+<%end%>
