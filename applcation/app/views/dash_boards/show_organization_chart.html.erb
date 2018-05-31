@@ -1,47 +1,71 @@
-<<<<<<< HEAD
+<style>
+.blue{
 
+    display: inline-block;
+  font-family: 'Gabriela', serif;
+  color: #b78726;
+  font-size: 1.3em;
+  border-radius: 5px;
+  background: #e8bbe2; /* alpha value for background */
+  
+
+}
+.level{
+  display: inline-block;
+  font-family: 'Gabriela', serif;
+  color: #b78726;
+  font-size: 1.0em;
+  border-radius: 5px;
+  background: #c6efef;
+
+
+}
+.high{
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 1.8em;
+
+background-color: #e5e3e3;
+
+
+}
+</style>
+
+<div class="col-sm-4"  style="background-color: #e5e3e3;    outline: 1px solid lightgray;">
 <%for emp in @ceo_emp%>
  
 
  <div  align="left",  id ="<%emp.name%>">
 <%= image_tag("plus-button-green.png",:class => "plus",:id=> "#{emp.name}_plus", size: "20x20", onclick: "checksub('#{emp.name}','plus')".html_safe)%>
 <%= image_tag("minus.jpeg", :class => "minus", :id => "#{emp.name}_minus" ,size: "20x20", onclick: "checksub('#{emp.name}','minus')".html_safe)%>
+<a href="javascript:onclick=show_employee(<%= emp.id%>)" class="high" >
+<%= emp.name%></a>
 
-<%= emp.name%>
-<td>
-  <%= link_to 'Show', emp %>
-</td>
-<br />
+<br /><br />
 
 </div> 
 <%@sub = emp.subordinates%>
 <%if !@sub.blank?%>
 <div id = "<%= emp.name%>" style ="display:none;">
 <%for sub in @sub%>
- <div  id ="<%sub.name%>", align="left">
- 	<td>
+ 
   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-<%= image_tag("plus-button-green.png",:class => "plus",:id=> "#{sub.name}_plus", size: "20x20", onclick: "checksub('#{sub.name}','plus')".html_safe)%>
-<%= image_tag("minus.jpeg", :class => "minus", :id => "#{sub.name}_minus" ,size: "20x20", onclick: "checksub('#{sub.name}','minus')".html_safe)%>
-<%= sub.name%>
-<%= link_to 'Show', sub %>
- </td>
-</div>
+<a href="javascript:onclick=show_employee(<%= sub.id%>)" class="blue">
+
+<%= sub.name%></a>
+<%#= link_to 'Show', sub %>
+<br />
 
 <%@level3 = sub.subordinates %>
 <%if !@level3.blank?%>
-<div align="left" id = "<%= sub.name%>" style ="display:none;">
+<div >
 <%for level3 in @level3%>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+<a href="javascript:onclick=show_employee(<%= level3.id%>)" class="level">
 
-
-<%= level3.name%>
-<td>
-  <%= link_to 'Show', level3 %>
- </td>
+<%= level3.name%></a>
 <br />
 <%end%>
 </div>
@@ -50,6 +74,9 @@
 </div>
 <%end%>
 <%end%>
+
+</div>
+<div id= 'showing_employee' class ="col-sm-6" style ="display:none;" ></div>
 <script>
 	$('.minus').hide();
 	function checksub(x,y){
@@ -69,17 +96,18 @@ $('#'+res).hide();
 
 	}
 
+
+function show_employee(emp_id){
+$('#showing_employee').show();
+$.ajax({
+        url:"/employees/"+emp_id,
+         async: false,
+          success: function(result){
+
+            $('#showing_employee').html(result);
+
+}});
+
+}
+
 </script>
-=======
-<%for emp in @ceo_emp%>
- <div class="btn btn-primary">
-<%=image_tag("plus-button-green.png",  size: "20x15",alt: "MyInc Logo")%><%= emp.name%>
-</div>
-<%@sub = emp.subordinates%>
-<%if !@sub.blank?%>
-<%for sub in @sub%>
-<h4><%= sub.name%></h4>
-<%end%>
-<%end%>
-<%end%>
->>>>>>> a47bd15db4acc67cd5ab0380e5fdde5538f8156b

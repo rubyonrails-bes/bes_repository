@@ -1,34 +1,27 @@
-<!--
-<html>
-
-<p id="notice"><%#= notice %></p>
+<p id="notice"><%= notice %></p>
 <p>
   <strong>Name:</strong>
-  <%#= @employee.name %>
+  <%= @employee.name %>
 </p>
 
 <p>
   <strong>Designation:</strong>
-  <%#= @employee.designation %>
+  <%= @employee.designation %>
 </p>
 
 <p>
   <strong>Image url:</strong>
-  <%#= image_tag(@employee.image_url.to_s) %>
+  <%= image_tag(@employee.image_url.to_s) %>
 </p>
 
 <p>
   <strong>Addres to Communicate:</strong>
-  <%#= @employee.addres %>
+  <%= @employee.addres %>
 </p>
 <p>
   <strong>Date of Birth:</strong>
-  <%#= "#{@employee.date}/#{@employee.month}/#{@employee.year}" %>
+  <%= "#{@employee.date}/#{@employee.month}/#{@employee.year}" %>
 </p>
 <%if ( current_user.has_role?(:admin) || current_user.has_role?(:hr))%>
 <%= link_to 'Edit', edit_employee_path(@employee) %> <%#= link_to 'Back', employees_path %>
 <%end%>
-
-<%#= link_to 'Back', employees_path %>
-</html>
-

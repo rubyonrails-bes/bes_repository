@@ -10,6 +10,5 @@ Rails.application.routes.draw do
  get 'check_employee_type' => 'employees#check_employee_type'
  get 'organization_chart' => 'dash_boards#show_organization_chart'
  get 'emp_list_show' => 'employees#emp_list_show'
-# get 'search_employees' => 'employees#search_employee'
  root to: "dash_boards#index"
 end

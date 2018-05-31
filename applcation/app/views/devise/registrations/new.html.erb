@@ -1,31 +1,195 @@
+<style>
+body{background: #eee url(http://subtlepatterns.com/patterns/sativa.png);}
+
+body{
+   position: relative;
+    height: 100%;
+}
+
+.login-container{
+    position: relative;
+    width: 800px;
+    margin: 80px auto;
+    padding: 20px 40px 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+#output{
+    position: absolute;
+    width: 300px;
+    top: -75px;
+    left: 0;
+    color: #fff;
+}
+
+#output.alert-success{
+    background: rgb(25, 204, 25);
+}
+
+#output.alert-danger{
+    background: rgb(228, 105, 105);
+}
+
+
+.login-container::before,.login-container::after{
+    content: "";
+    position: absolute;
+    width: 100%;height: 100%;
+    top: 3.5px;left: 0px;
+    background: #fff;
+    z-index: -1;
+    -webkit-transform: rotateZ(4deg);
+    -moz-transform: rotateZ(4deg);
+    -ms-transform: rotateZ(4deg);
+    border: 1px solid #ccc;
+
+}
+
+.login-container::after{
+    top: 5px;
+    z-index: -2;
+    -webkit-transform: rotateZ(-2deg);
+     -moz-transform: rotateZ(-2deg);
+      -ms-transform: rotateZ(-2deg);
+
+}
+
+.avatar{
+    width: 100px;height: 100px;
+    margin: 10px auto 30px;
+    border-radius: 100%;
+    border: 2px solid #aaa;
+    background-size: cover;
+}
+
+.form-box input{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    height:40px;
+    border: 1px solid #ccc;;
+    background: #fafafa;
+    transition:0.2s ease-in-out;
+
+}
+
+.form-box input:focus{
+    outline: 0;
+    background: #eee;
+}
+
+.form-box input[type="text"]{
+    border-radius: 5px 5px 0 0;
+    text-transform: lowercase;
+}
+
+.form-box input[type="password"]{
+    border-radius: 0 0 5px 5px;
+    border-top: 0;
+}
+
+.form-box button.Signup{
+    margin-top:15px;
+    padding: 50px 20px;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+.signup{
+
+  width:10px;
+}
+
+</style>
   <p class="alert" bg-color="red"><%= notice %></p>
        <p class="alert" bg-color="red"><%= alert %></p>
+<div class="container" border="1" padding-left="10px">
+
+
+        <div class="login-container">
+            <div class="form-box">
+
+
+
+  <div class="logo" > 
+        <img src="/assets/logo.png" alt="logo" >  
+  </div>
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+<table><tr>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+     <td width='30%'><%= f.label :email %></td>
+    <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>  
   </div>
-
+</tr><tr>
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
+     <td width='30%'><%= f.label :password %></td>
+  
+<td>    <%= f.password_field :password, autocomplete: "off" %>
+     </td><td><% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <% end %></td>
+  </div></tr>
+  <tr>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+     <td width='30%'><%= f.label :password_confirmation %></td>
+    <td><%= f.password_field :password_confirmation, autocomplete: "off" %></td><br />
+  </div></tr>
 
+<tr></tr><tr></tr><tr></tr><tr></tr>
+
+<tr >
   <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+     
+     <td width='30%' ></td><td><%= f.submit "Sign up", style: 'width:60%;background-color:#0066A2;color:white;    border-radius: 10px 10px 10px 10px;border-style: outset;'%></td>
+  </div></tr>
 <% end %>
-
-<%= render "devise/shared/links" %>
+<tr> <td width='30%'></td><td>
+<%= render "devise/shared/links" %></td></tr></table>
+</div></div>
+</div>

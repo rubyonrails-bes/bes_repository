@@ -17,6 +17,7 @@ end
   # GET /employees/1
   # GET /employees/1.json
   def show
+  render :layout => false
   end
 
   # GET /employees/new
@@ -30,6 +31,7 @@ end
 
   # GET /employees/1/edit
   def edit
+  
   end
   def emp_list_show
 if params[:from] == "search"
@@ -43,14 +45,7 @@ def search_employee
 render :layout=> false
 end
 
-
 def check_employee_type
-
-  def search_employee
-  render :layout => false
-  end
-
-  def check_employee_type
 
 if params[:type] == "Employee"
 
