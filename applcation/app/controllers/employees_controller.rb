@@ -43,8 +43,18 @@ def search_employee
 render :layout=> false
 end
 
+
 def check_employee_type
 
+<<<<<<< HEAD
+=======
+  def search_employee
+  render :layout => false
+  end
+
+  def check_employee_type
+
+>>>>>>> 3cdb48fd7ef53dd6650e47161c450830e5109e20
 if params[:type] == "Employee"
 
 @employee_typ = Employee.where("level = ?","Manager")

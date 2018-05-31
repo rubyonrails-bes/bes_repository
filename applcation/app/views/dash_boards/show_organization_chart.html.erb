@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <%for emp in @ceo_emp%>
  
@@ -69,3 +70,16 @@ $('#'+res).hide();
 	}
 
 </script>
+=======
+<%for emp in @ceo_emp%>
+ <div class="btn btn-primary">
+<%=image_tag("plus-button-green.png",  size: "20x15",alt: "MyInc Logo")%><%= emp.name%>
+</div>
+<%@sub = emp.subordinates%>
+<%if !@sub.blank?%>
+<%for sub in @sub%>
+<h4><%= sub.name%></h4>
+<%end%>
+<%end%>
+<%end%>
+>>>>>>> a47bd15db4acc67cd5ab0380e5fdde5538f8156b

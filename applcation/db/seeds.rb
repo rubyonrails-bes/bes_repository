@@ -35,3 +35,15 @@ Dsb.link_details.create(detail_name: :'Employee Data Update')
 Dsb2 =DashBoard.find_by_link_name('organization chart')
 Dsb2.update_attributes(link_role: :'Employee')
 
+<<<<<<< HEAD
+=======
+DashBoard.create(link_name: :'HR Links')
+DashBoard.create(link_name: :'organization chart')
+
+Dsb = DashBoard.find_by_link_name('HR Links')
+Dsb.link_details.create(detail_name: :'Employee creation')
+Dsb.link_details.create(detail_name: :'Employee Data Update')
+Dsb2 =DashBoard.find_by_link_name('organization chart')
+Dsb2.update_attributes(link_role: :'Employee')
+
+>>>>>>> a47bd15db4acc67cd5ab0380e5fdde5538f8156b
