@@ -7,10 +7,11 @@
 
 development:
   adapter: postgresql
-  username: postgres
-  password: solution
-  database: postgres
-  host: localhost 
+  username: bes_user
+  password: bes123
+  database: postgres_may2018
+  #host: localhost
+  host: 192.168.1.103
   port: 5432
 
 production:
