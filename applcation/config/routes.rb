@@ -10,5 +10,7 @@ Rails.application.routes.draw do
  get 'check_employee_type' => 'employees#check_employee_type'
  get 'organization_chart' => 'dash_boards#show_organization_chart'
  get 'emp_list_show' => 'employees#emp_list_show'
+ get 'employeelogincreate' => 'employees#login_page'
+ post 'employees/create_credentials' =>'employees#create_credentials'
  root to: "dash_boards#index"
 end

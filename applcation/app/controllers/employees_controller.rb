@@ -4,8 +4,6 @@ class EmployeesController < ApplicationController
   redirect_to root_url, alert: exception.message
 end
 
-
-
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   # GET /employees
@@ -28,7 +26,35 @@ if params[:from] == 'start'
 render :layout => false
 end
   end
+def login_page
+render :layout => false
+end
+def create_credentials
+@user = User.new
+@user.email = params[:email]
+@user.password = params[:password]
+@user.password = params[:password_confirmation]
+status = @user.save
+@role = Role.find_by_id(params[:emp][:role].to_i).name
+if @role=="employee"
+status = @user.add_role(:employee)
+elsif @role=="hr"
+status=@user.add_role(:hr)
+elsif @role=="manager"
+status =@user.add_role(:manager)
+elsif @role == "admin"
+status =@user.add_role(:admin)
+end
+if status
+flash[:notice] =  "successfully created"
+  render :action=> 'create_credentials'
+else
+flash[:notice] =  "unsuccesfull"
+  render :action=> 'create_credentials'
 
+
+end
+end
   # GET /employees/1/edit
   def edit
   

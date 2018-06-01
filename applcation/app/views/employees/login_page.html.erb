@@ -1,0 +1,62 @@
+<h2>Employee Login creation</h2>
+
+<%= form_with url:  employees_create_credentials_path do |f|  %>
+<table><tr>
+  <div class="field">
+     <td width='30%'><%= "Email:" %></td>
+    <td><%= text_field_tag :email %></td>  
+  </div>
+</tr><tr>
+  <div class="field">
+     <td width='30%'><%= "Password:" %></td>
+  
+<td>    <%= password_field_tag :password%>
+     </td>
+  </div></tr>
+  <tr>
+
+  <div class="field">
+     <td width='30%'><%="Password confirmation:" %></td>
+    <td><%= password_field_tag :password_confirmation %></td><br />
+  </div></tr>
+
+<tr>
+  <div class="field">
+     <td width='30%'><%="Role:" %></td>
+    <td><%= collection_select(:emp, :role, Role.all, :id, :name, {:selected=>Role.find_by_name('Employee')}) %></td><br />
+  </div></tr>
+
+<tr >
+  <div class="actions">
+     
+     <td width='30%' ></td><td><%= submit_tag "Create Credentails", :id=> 'login_emp', style: 'width:40%;background-color:#0066A2;color:white;    border-radius: 10px 10px 10px 10px;border-style: outset;'%></td>
+  </div></tr>
+<% end %>
+
+<script>
+$('#login_emp').click(function (event){
+
+if ($('#email').val() == ""){
+
+  alert('give email');
+    event.preventDefault();
+}
+if ($('#password').val() == ""){
+
+  alert('give password');
+    event.preventDefault();
+}
+if ($('#password_confirmation').val() == ""){
+
+  alert('give password_confirmation');
+    event.preventDefault();
+}
+if ($('#password').val() != $('#password_confirmation').val()){
+
+  alert('give same passwords');
+    event.preventDefault();
+}
+
+});
+
+  </script>
