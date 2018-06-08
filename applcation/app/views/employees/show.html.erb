@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employee Id:</strong>
+  <%= @employee.id %>
+</p>
 <p>
   <strong>Name:</strong>
   <%= @employee.name %>
@@ -21,6 +26,45 @@
 <p>
   <strong>Date of Birth:</strong>
   <%= "#{@employee.date}/#{@employee.month}/#{@employee.year}" %>
+</p>
+<p>
+  <strong>Permanent addres:</strong>
+  <%= @employee.address1 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @employee.city %>
+</p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @employee.postal_code %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @employee.region %>
+</p>
+<p>
+  <strong>Aadhar no:</strong>
+  <%= @employee.aadhar %>
+</p>
+<p>
+  <strong>Pan no:</strong>
+  <%= @employee.pan %>
+</p>
+<p>
+  <strong>Phone no:</strong>
+  <%= @employee.phone %>
+</p>
+<p>
+  <strong>Blood group:</strong>
+  <%= @employee.blood %>
+</p>
+<p>
+  <strong>Marital status:</strong>
+  <%= @employee.marital %>
 </p>
 <%if ( current_user.has_role?(:admin) || current_user.has_role?(:hr))%>
 <%= link_to 'Edit', edit_employee_path(@employee) %> <%#= link_to 'Back', employees_path %>

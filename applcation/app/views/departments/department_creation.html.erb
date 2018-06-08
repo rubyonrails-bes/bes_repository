@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+
+<%= form_for(:department_create, local: true , url: departments_create_path) do |form| %>
+
+  <% if @depart.errors.any? %>
+<ul>
+  <% @depart.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+<table><tr>
+  <div class="field">
+     <td width='30%'><%= form.label :'Department Name' %></td>
+    <td><%= form.text_field :department_name %></td>
+  </div>
+</tr>
+<tr>
+  <div class="field">
+     <td width='30%'><%= form.label :'Department Code' %></td>
+    <td><%= form.text_field :department_code %></td>
+  </div>
+</tr>
+<tr>
+  <div class="field">
+     <td width='30%'><%= form.label :'Designation' %></td>
+    <td><%= form.text_field :designation %></td>
+  </div>
+</tr>
+<tr>
+  <td colspan = "2">
+  <div class="actions" id ="action">
+    <center><%= form.submit %></center>
+  </div>
+</td>
+</tr>
+</table>
+
+<%end%>

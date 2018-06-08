@@ -1,0 +1,76 @@
+<form id="secondform" target="iframe2">
+
+<%= form_for @employee do |form| %>
+
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+<fieldset>
+<legend><b><%= ("Personal Information")%></b></legend>
+<table align='center' class="tablecss" cellspacing=0 cellpadding=5 align=center width="100%" >
+  <tr>
+ <td colspan = "1"><%= form.label :Permanent_Addres %></td>
+ <td colspan = "1"><%= form.text_field :address1 %></td>
+</tr>
+  <tr>
+  <td colspan = "1"><%= form.label :City %></td>
+  <td colspan = "1"><%= form.text_field :city %></td>
+</tr>
+<tr>
+ <td colspan = "1"><%= form.label :Postal_code %></td>
+ <td colspan = "1"><%= form.text_field :postal_code %></td>
+</tr>
+<tr>
+  <td colspan = "1"><%= form.label :Region %></td>
+  <td colspan = "1"><%= form.text_field :region %></td>
+</tr>
+
+<tr>
+ <td colspan = "1"><%= form.label :Aadhar_no %></td>
+ <td colspan = "1"><%= form.text_field :aadhar %></td>
+</tr>
+ <tr>
+  <td colspan = "1"><%= form.label :Pan_no %></td>
+  <td colspan = "1"><%= form.text_field :pan %></td>
+</tr>
+
+ <tr>
+ <td colspan = "1"><%= form.label :Phone_no %></td>
+ <td colspan = "1"><%= form.text_field :phone %></td>
+</tr>
+<tr>
+ <td colspan = "1"><%= form.label :Blood_group %></td>
+ <td colspan = "1"><%= form.text_field :blood %></td>
+</tr>
+<tr>
+ <td colspan = "1"><%= form.label :'Marital status' %></td>
+ <td colspan = "1"><%= form.text_field :marital %></td>
+</tr>
+ 
+
+<tr>
+  <td colspan = "2" class="actions" id ="action" >
+    <center><button onclick="submitForms()"><%=  form.submit'save' %></button></center>
+</td>
+</tr>
+ </table>
+
+</fieldset>
+
+
+<%end%>
+
+</form>
+<iframe name="iframe1" style="display:none"></iframe>
+<script type="text/javascript">
+  $('#action').show();
+</script>>

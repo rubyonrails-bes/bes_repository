@@ -1,4 +1,6 @@
+
 <%= form_for @employee do |form| %>
+
   <% if employee.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
@@ -10,14 +12,23 @@
       </ul>
     </div>
   <% end %>
+
+  <fieldset>
+
+  <legend><b><%= ("Company Information")%></b></legend>
+
   <table align='center' class="tablecss" cellspacing=0 cellpadding=5 align=center width="100%" >
+<tr>
+  <td colspan = "1"><%= form.label :'Employee Id' %></td>
+  <td colspan = "1"><%= form.text_field :id %></td>
+</tr>
 
 <tr>
   <td colspan = "1"><%= form.label :Name %></td>
   <td colspan = "1"><%= form.text_field :name %></td>
 </tr>
 <tr>
- <td colspan = "1"><%= form.label :Designation22222 %></td>
+ <td colspan = "1"><%= form.label :Designation %></td>
  <td colspan = "1"><%= form.text_field :designation %></td>
 </tr>
 
@@ -39,19 +50,86 @@
   <td colspan = "1"><%= form.label :Dob %></td>
   <td colspan = "1"><%= date_select("employees", "written_on",start_year: 1985, order: [:day, :month, :year]) %></td>
 </tr>
-<tr>
-  <td colspan = "2">
-  <div class="actions" id ="action">  <hr>
-    <center><%= form.submit %></center>
-  </div>
-</td>
+
 </tr>
-</tr>
+
+
 </table>
+</fieldset>
+
+
+
+
+
+<fieldset>
+<legend><b><%= ("Personal Information")%></b></legend>
+<table align='center' class="tablecss" cellspacing=0 cellpadding=5 align=center width="100%" >
+  <tr>
+ <td colspan = "1"><%= form.label :Permanent_Addres %></td>
+ <td colspan = "1"><%= form.text_field :address1 %></td>
+</tr>
+  <tr>
+  <td colspan = "1"><%= form.label :City %></td>
+  <td colspan = "1"><%= form.text_field :city %></td>
+</tr>
+<tr>
+ <td colspan = "1"><%= form.label :Postal_code %></td>
+ <td colspan = "1"><%= form.text_field :postal_code %></td>
+</tr>
+<tr>
+  <td colspan = "1"><%= form.label :Region %></td>
+  <td colspan = "1"><%= form.text_field :region %></td>
+</tr>
+
+<tr>
+ <td colspan = "1"><%= form.label :Aadhar_no %></td>
+ <td colspan = "1"><%= form.text_field :aadhar %></td>
+</tr>
+ <tr>
+  <td colspan = "1"><%= form.label :Pan_no %></td>
+  <td colspan = "1"><%= form.text_field :pan %></td>
+</tr>
+
+ <tr>
+ <td colspan = "1"><%= form.label :Phone_no %></td>
+ <td colspan = "1"><%= form.text_field :phone %></td>
+</tr>
+<tr>
+ <td colspan = "1"><%= form.label :Blood_group %></td>
+ <td colspan = "1"><%= form.text_field :blood %></td>
+</tr>
+<tr>
+ <td colspan = "1"><%= form.label :'Marital status' %></td>
+ <td colspan = "1"><%= form.text_field :marital %></td>
+</tr>
+ 
+
+<tr>
+  
+</tr>
+ </table>
+
+</fieldset>
+
+
+
+<div align = 'center'>
+       <%=submit_tag "Save",{:controller => 'employee', :action => 'create',:id=>'submit_data',:class=>"buttons"}%>
+  </div>
+
 <% end %>
+<script type="text/javascript">
+  $('#action').show();
+</script>
 
-<script>
 
+
+<script type="text/javascript" data-turbolinks-eval=false>
+  $('#action').hide();
+ function clickme(data1,data2){
+    alert(data1);
+     
+   }
 
 $('#report').hide();
 $('#employee_level').change(function(){
@@ -74,4 +152,8 @@ alert(123);
 }});
 }
 });
+
+
+
+
 </script>

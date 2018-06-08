@@ -19,6 +19,11 @@ end
   def show
   render :layout => false
   end
+  def persnal
+  end
+
+def department_creation
+end
 
   # GET /employees/new
   def new
@@ -48,7 +53,7 @@ end
 def check_employee_type
 
 if params[:type] == "Employee"
-
+#raise gjh.inspect
 @employee_typ = Employee.where("level = ?","Manager")
 elsif params[:type] == "Manager"
 @employee_typ = Employee.where("level = ?","CEO")
@@ -58,12 +63,12 @@ end
   # POST /employees
   # POST /employees.json
   def create
-
+#raise params.inspect 
     @employee = Employee.new(employee_params)
-    @employee.date = params[:employees]["written_on(3i)"]
-    @employee.month = params[:employees]["written_on(2i)"]
-    @employee.year = params[:employees]["written_on(1i)"]
-    @employee.level = params[:employee][:level]
+    @employee.date = params[:employees]["written_on(3i)"] 
+    @employee.month = params[:employees]["written_on(2i)"] 
+    @employee.year = params[:employees]["written_on(1i)"] 
+    @employee.level = params[:employee][:level] 
     @employee.parent_id = params[:employee][:parent_id].to_i if !params[:employee][:parent_id].blank?
     @employee.user_id = current_user.id
     
@@ -110,7 +115,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-
-      params.require(:employee).permit(:name,:designation,:image_url,:addres)
+      params.require(:employee).permit(:name,:designation,:image_url,:addres,:address1,:city,:region,:postal_code,:aadhar,:pan,:phone,:blood,:marital)
     end
 end

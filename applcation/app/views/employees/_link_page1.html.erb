@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+ <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">Company Information</a></li>
+        <li><a href="#tab2" data-toggle="tab">Personal Information</a></li>
+        <li><a href="#tab3" data-toggle="tab">Blank</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+          <p><%= render 'form', employee: @employee %></p>
+        </div>
+        <div class="tab-pane" id="tab2">
+          <p><%= render 'form', employee: @employee %></p>
+          
+
+        </div>
+        <div class="tab-pane disable" id="tab3">
+          <p>Now I'm Blank Please Fill ME.............. .</p>
+        </div>
+      </div>
+    </div>
+
+  
+
+</body>
+
+
+<script language="javascript">
+function submitForms{
+  alert(8679);
+  document.getElementById("firstform").submit();
+  document.getElementById("secondform").submit();
+ }
+</script>
+</html>

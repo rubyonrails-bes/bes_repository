@@ -32,6 +32,8 @@ DashBoard.create(link_name: :'organization chart')
 Dsb = DashBoard.find_by_link_name('HR Links')
 Dsb.link_details.create(detail_name: :'Employee creation')
 Dsb.link_details.create(detail_name: :'Employee Data Update')
+Dsb.link_details.create(detail_name: :'Department creation')
+
 Dsb2 =DashBoard.find_by_link_name('organization chart')
 Dsb2.update_attributes(link_role: :'Employee')
 

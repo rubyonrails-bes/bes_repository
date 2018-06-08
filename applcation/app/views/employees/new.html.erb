@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,10 +29,11 @@ body:focus {
 </style>
 </head>
 <body align ='center'>
-<h1><center>New Employee</center></h1>
+<h5><center>New Employee</center></h5>
   <table align='center' class="tablecss" cellspacing=0 cellpadding=5 align=center width="100%" >
 <tr><td>
-<%= render 'form', employee: @employee %>
+<%= render 'link_page1', employee: @employee %>
+
 </td></tr>
 <tr><td>
 <%= link_to 'Back', dash_boards_path %>

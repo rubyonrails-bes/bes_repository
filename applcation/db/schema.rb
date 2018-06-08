@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_29_084617) do
+ActiveRecord::Schema.define(version: 2018_06_05_064253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 2018_05_29_084617) do
     t.string "link_role"
   end
 
+  create_table "department_creates", force: :cascade do |t|
+    t.string "department_name"
+    t.string "designation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "department_code"
+  end
+
   create_table "employees", force: :cascade do |t|
     t.string "name"
     t.text "designation"
@@ -40,6 +48,16 @@ ActiveRecord::Schema.define(version: 2018_05_29_084617) do
     t.integer "user_id"
     t.integer "parent_id"
     t.string "level"
+    t.string "employee_id"
+    t.string "address1"
+    t.string "city"
+    t.string "postal_code"
+    t.string "region"
+    t.string "aadhar"
+    t.string "phone"
+    t.string "pan"
+    t.string "blood"
+    t.string "marital"
   end
 
   create_table "link_details", force: :cascade do |t|
