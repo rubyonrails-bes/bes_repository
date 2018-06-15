@@ -34,12 +34,19 @@ background-color: #e5e3e3;
 <div class="col-sm-4"  style="background-color: #e5e3e3;    outline: 1px solid lightgray;">
 <%for emp in @ceo_emp%>
  
-
+<%manager =  emp.subordinates%>
+<% count1 = manager.size%>
+<%if !manager.blank?%>
+<%count2 = 0%>
+<%for cnt in manager%>
+<%count2 +=cnt.subordinates.size  %>
+<%end%><%end%>
+<%count = count1 + count2%>
  <div  align="left",  id ="<%emp.name%>">
 <%= image_tag("plus-button-green.png",:class => "plus",:id=> "#{emp.name}_plus", size: "20x20", onclick: "checksub('#{emp.name}','plus')".html_safe)%>
 <%= image_tag("minus.jpeg", :class => "minus", :id => "#{emp.name}_minus" ,size: "20x20", onclick: "checksub('#{emp.name}','minus')".html_safe)%>
 <a href="javascript:onclick=show_employee(<%= emp.id%>)" class="high" >
-<%= emp.name%></a>
+<%= emp.name+'('+count.to_s+')'%></a>
 
 <br /><br />
 
@@ -53,7 +60,7 @@ background-color: #e5e3e3;
 
 <a href="javascript:onclick=show_employee(<%= sub.id%>)" class="blue">
 
-<%= sub.name%></a>
+<%= sub.name+'('+count2.to_s+')'%></a>
 <%#= link_to 'Show', sub %>
 <br />
 

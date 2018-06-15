@@ -1,0 +1,49 @@
+
+<h2>Department Creation</h2>
+<%= form_tag departments_create_path do |f| %>
+<% if @department.errors.any? %>
+<ul>
+  <% @department.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<p id="notice"><%= notice %></p>
+
+<%end%>
+
+<% if @designation.errors.any? %>
+<ul>
+  <% @designation.errors.full_messages.each do |msg| %>
+    <li><%= 'Designation' + msg.to_s %></li>
+  <% end %>
+</ul>
+<%end%>
+<table><tr>
+  <div class="field">
+     <td width='30%'><%= 'Department Name:' %></td>
+    <td><%= text_field_tag :'department[dep_name]' %></td>  
+  </div>
+</tr>
+<tr>
+  <div class="field">
+     <td width='30%'><%= "Department Code:" %></td>
+    <td><%= text_field_tag :'department[dep_code]' %></td> 
+  </div>
+</tr>
+<tr>
+  <div class="field">
+     <td width='30%'><%= 'Designation:' %></td>
+    <td><%= text_field_tag :designation %></td> 
+  </div>
+</tr>
+<tr>
+  <td colspan = "2">
+  <div class="actions" id ="action"> 
+  
+    <center><%= submit_tag :save, :id=> 'login_emp', style: 'width:40%;background-color:#0066A2;color:white;    border-radius: 10px 10px 10px 10px;border-style: outset;' %></center>
+  </div>
+</td>
+</tr>
+</table>
+
+<%end%>

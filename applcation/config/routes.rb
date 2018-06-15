@@ -12,5 +12,8 @@ Rails.application.routes.draw do
  get 'emp_list_show' => 'employees#emp_list_show'
  get 'employeelogincreate' => 'employees#login_page'
  post 'employees/create_credentials' =>'employees#create_credentials'
+# get 'search_employees' => 'employees#search_employee'
  root to: "dash_boards#index"
+get 'dep_create'=>'departments#new'
+ post 'departments/create' => 'departments#create'
 end

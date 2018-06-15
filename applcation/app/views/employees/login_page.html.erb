@@ -1,7 +1,12 @@
-<h2>Employee Login creation</h2>
+<p id="notice"><%= notice %></p>
 
+<div>
 <%= form_with url:  employees_create_credentials_path do |f|  %>
-<table><tr>
+
+<table>
+<tr><h2>Employee Login creation</h2>
+</tr>
+  <tr>
   <div class="field">
      <td width='30%'><%= "Email:" %></td>
     <td><%= text_field_tag :email %></td>  
@@ -19,6 +24,14 @@
      <td width='30%'><%="Password confirmation:" %></td>
     <td><%= password_field_tag :password_confirmation %></td><br />
   </div></tr>
+<tr>
+  <div class="field">
+     <td width='30%'><%="Department:" %></td>
+    <td><%= collection_select(:department, :id, Department.all, :id, :dep_name) %></td><br />
+  </div></tr>
+
+<tr >
+
 
 <tr>
   <div class="field">
@@ -32,6 +45,20 @@
      <td width='30%' ></td><td><%= submit_tag "Create Credentails", :id=> 'login_emp', style: 'width:40%;background-color:#0066A2;color:white;    border-radius: 10px 10px 10px 10px;border-style: outset;'%></td>
   </div></tr>
 <% end %>
+</div>
+<div>
+
+<%if !@res.blank?%>
+<table style="border:3px solid black">
+<%for res in @res%>
+<tr><td>
+<%= link_to res, new_employee_path(:emp_code => res), :"data-turbolinks" => false%></td></tr>
+<%end%>
+</table>
+<%end%>
+
+</div>
+
 
 <script>
 $('#login_emp').click(function (event){
